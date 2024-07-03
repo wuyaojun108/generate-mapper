@@ -89,3 +89,35 @@ public class MapperGeneratorTest {
 
 为了演示项目效果，在这里提供一个使用案例，配置文件、测试类、生成的代码，都在“案例1”目录下。
 
+
+这是数据表：
+
+```sql
+CREATE TABLE `demo1` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT COMMENT '主键',
+  `a_tinyint` tinyint DEFAULT NULL COMMENT '注释1',
+  `a_smallint` smallint DEFAULT NULL COMMENT '注释2',
+  `a_mediumint` mediumint DEFAULT NULL,
+  `a_int` int DEFAULT NULL,
+  `a_integer` int DEFAULT NULL,
+  `a_bigint` bigint DEFAULT NULL,
+  `a_boolean` tinyint(1) DEFAULT NULL,
+  `a_bit` bit(1) DEFAULT NULL,
+  `a_float` float(10,2) DEFAULT NULL,
+  `a_double` double(15,2) DEFAULT NULL,
+  `a_decimal` decimal(10,5) DEFAULT NULL,
+  `a_char` char(10) DEFAULT NULL,
+  `a_varchar` varchar(50) DEFAULT NULL,
+  `a_tinytext` tinytext,
+  `a_text` text,
+  `a_mediumtext` mediumtext,
+  `a_long_text` longtext,
+  `a_date` date DEFAULT NULL,
+  `a_time` time DEFAULT NULL,
+  `a_datetime` datetime DEFAULT NULL,
+  `a_timestamp` timestamp NULL DEFAULT NULL,
+  `a_year` year DEFAULT NULL,
+  `a_blob` blob
+);
+```
+
