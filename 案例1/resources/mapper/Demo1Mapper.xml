@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="org.wyj.mapper.demo1DOMapper">
+
+    <resultMap id="BaseResultMap" type="org.wyj.entity.demo1DO">
+        <id column="id" jdbcType="INTEGER" property="id" />
+        <result column="a_tinyint" jdbcType="TINYINT" property="aTinyint" />
+        <result column="a_smallint" jdbcType="SMALLINT" property="aSmallint" />
+        <result column="a_mediumint" jdbcType="INTEGER" property="aMediumint" />
+        <result column="a_int" jdbcType="INTEGER" property="aInt" />
+        <result column="a_integer" jdbcType="INTEGER" property="aInteger" />
+        <result column="a_bigint" jdbcType="BIGINT" property="aBigint" />
+        <result column="a_boolean" jdbcType="BOOLEAN" property="aBoolean" />
+        <result column="a_bit" jdbcType="BOOLEAN" property="aBit" />
+        <result column="a_float" jdbcType="FLOAT" property="aFloat" />
+        <result column="a_double" jdbcType="DOUBLE" property="aDouble" />
+        <result column="a_decimal" jdbcType="DECIMAL" property="aDecimal" />
+        <result column="a_char" jdbcType="VARCHAR" property="aChar" />
+        <result column="a_varchar" jdbcType="VARCHAR" property="aVarchar" />
+        <result column="a_tinytext" jdbcType="VARCHAR" property="aTinytext" />
+        <result column="a_text" jdbcType="VARCHAR" property="aText" />
+        <result column="a_mediumtext" jdbcType="VARCHAR" property="aMediumtext" />
+        <result column="a_long_text" jdbcType="VARCHAR" property="aLongText" />
+        <result column="a_date" jdbcType="TIMESTAMP" property="aDate" />
+        <result column="a_time" jdbcType="TIMESTAMP" property="aTime" />
+        <result column="a_datetime" jdbcType="TIMESTAMP" property="aDatetime" />
+        <result column="a_timestamp" jdbcType="TIMESTAMP" property="aTimestamp" />
+        <result column="a_year" jdbcType="TIMESTAMP" property="aYear" />
+        <result column="a_blob" jdbcType="BLOB" property="aBlob" />
+    </resultMap>
+
+    <sql id="BaseColumn">
+        id, a_tinyint, a_smallint, a_mediumint, a_int, a_integer, a_bigint, a_boolean, a_bit, 
+        a_float, a_double, a_decimal, a_char, a_varchar, a_tinytext, a_text, a_mediumtext, 
+        a_long_text, a_date, a_time, a_datetime, a_timestamp, a_year, a_blob
+    </sql>
+
+    <select id="selectList" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumn" />
+        FROM demo1
+    </select>
+
+    <insert id="insert" parameterType="org.wyj.entity.demo1DO"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO demo1(id, a_tinyint, a_smallint, a_mediumint, a_int, a_integer, a_bigint, 
+            a_boolean, a_bit, a_float, a_double, a_decimal, a_char, a_varchar, a_tinytext, a_text, 
+            a_mediumtext, a_long_text, a_date, a_time, a_datetime, a_timestamp, a_year, a_blob)
+        VALUES (#{id,jdbcType=INTEGER}, #{aTinyint,jdbcType=TINYINT}, #{aSmallint,jdbcType=SMALLINT}, 
+            #{aMediumint,jdbcType=INTEGER}, #{aInt,jdbcType=INTEGER}, #{aInteger,jdbcType=INTEGER}, 
+            #{aBigint,jdbcType=BIGINT}, #{aBoolean,jdbcType=BOOLEAN}, #{aBit,jdbcType=BOOLEAN}, 
+            #{aFloat,jdbcType=FLOAT}, #{aDouble,jdbcType=DOUBLE}, #{aDecimal,jdbcType=DECIMAL}, 
+            #{aChar,jdbcType=VARCHAR}, #{aVarchar,jdbcType=VARCHAR}, #{aTinytext,jdbcType=VARCHAR}, 
+            #{aText,jdbcType=VARCHAR}, #{aMediumtext,jdbcType=VARCHAR}, 
+            #{aLongText,jdbcType=VARCHAR}, #{aDate,jdbcType=TIMESTAMP}, #{aTime,jdbcType=TIMESTAMP}, 
+            #{aDatetime,jdbcType=TIMESTAMP}, #{aTimestamp,jdbcType=TIMESTAMP}, 
+            #{aYear,jdbcType=TIMESTAMP}, #{aBlob,jdbcType=BLOB})
+    </insert>
+
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT <include refid="BaseColumn" />
+        FROM demo1
+        WHERE id = #{id,jdbcType=INTEGER}
+    </select>
+
+    <update id="updateByPrimaryKey" parameterType="org.wyj.entity.demo1DO">
+        UPDATE demo1
+        <set>
+            <if test="aTinyint != null">
+                a_tinyint = #{aTinyint,jdbcType=TINYINT},
+            </if>
+            <if test="aSmallint != null">
+                a_smallint = #{aSmallint,jdbcType=SMALLINT},
+            </if>
+            <if test="aMediumint != null">
+                a_mediumint = #{aMediumint,jdbcType=INTEGER},
+            </if>
+            <if test="aInt != null">
+                a_int = #{aInt,jdbcType=INTEGER},
+            </if>
+            <if test="aInteger != null">
+                a_integer = #{aInteger,jdbcType=INTEGER},
+            </if>
+            <if test="aBigint != null">
+                a_bigint = #{aBigint,jdbcType=BIGINT},
+            </if>
+            <if test="aBoolean != null">
+                a_boolean = #{aBoolean,jdbcType=BOOLEAN},
+            </if>
+            <if test="aBit != null">
+                a_bit = #{aBit,jdbcType=BOOLEAN},
+            </if>
+            <if test="aFloat != null">
+                a_float = #{aFloat,jdbcType=FLOAT},
+            </if>
+            <if test="aDouble != null">
+                a_double = #{aDouble,jdbcType=DOUBLE},
+            </if>
+            <if test="aDecimal != null">
+                a_decimal = #{aDecimal,jdbcType=DECIMAL},
+            </if>
+            <if test="aChar != null">
+                a_char = #{aChar,jdbcType=VARCHAR},
+            </if>
+            <if test="aVarchar != null">
+                a_varchar = #{aVarchar,jdbcType=VARCHAR},
+            </if>
+            <if test="aTinytext != null">
+                a_tinytext = #{aTinytext,jdbcType=VARCHAR},
+            </if>
+            <if test="aText != null">
+                a_text = #{aText,jdbcType=VARCHAR},
+            </if>
+            <if test="aMediumtext != null">
+                a_mediumtext = #{aMediumtext,jdbcType=VARCHAR},
+            </if>
+            <if test="aLongText != null">
+                a_long_text = #{aLongText,jdbcType=VARCHAR},
+            </if>
+            <if test="aDate != null">
+                a_date = #{aDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aTime != null">
+                a_time = #{aTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aDatetime != null">
+                a_datetime = #{aDatetime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aTimestamp != null">
+                a_timestamp = #{aTimestamp,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aYear != null">
+                a_year = #{aYear,jdbcType=TIMESTAMP},
+            </if>
+            <if test="aBlob != null">
+                a_blob = #{aBlob,jdbcType=BLOB},
+            </if>
+        </set>
+        WHERE id = #{id,jdbcType=INTEGER}
+    </update>
+
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+        DELETE FROM demo1
+        WHERE id = #{id,jdbcType=INTEGER}
+    </delete>
+
+</mapper>
