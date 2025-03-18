@@ -76,9 +76,11 @@ public class MapperGenerator {
             String serviceImplName = objName + "ServiceImpl";
             String serviceTestName = objName + "ServiceTest";
 
+            // 读取表信息
             TableInfo tableInfo = dbQuery.tableSql(tableName);
             tableInfo.setEntityName(entityName);
             tableInfo.setMapperName(mapperName);
+            // 读取字段信息
             List<TableFieldInfo> tableFieldInfoList = dbQuery.tableFieldsSql(tableName, typeConvertor);
 
             boolean hasPrimaryKey = false;
